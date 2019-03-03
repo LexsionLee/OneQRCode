@@ -7,7 +7,7 @@
     <meta name="author" content="mengkun">
     <meta name="renderer" content="webkit">
     <meta http-equiv="Cache-Control" content="no-siteapp">
-    <title>万能收款码</title>
+    <title>客户支付方式整合</title>
     
     <script>
     /*
@@ -15,16 +15,16 @@
     */ 
     var setting = {
         /* 在以下【双引号】中粘贴QQ钱包收款链接 */ 
-        qqUrl: "https://i.qianbao.qq.com/wallet/sqrcode.htm?m=tenpay&a=1&u=1097437863&ac=B4C5BACD47FE6936D4B6DD29D866E1FC3AEA141B073F9DD94DE6404509CEE0FA&n=孤帆远影&f=wallet",
+        qqUrl: "",
         
         /* 在以下【双引号】中粘贴微信收款链接 */ 
-        wechatUrl: "https://wx.tenpay.com/f2f?t=AQAAAFtDAYCgnh0H4NWppc2G0n0%3D",
+        wechatUrl: "",
         
         /* 在以下【双引号】中粘贴支付宝收款链接 */ 
-        aliUrl: "HTTPS://QR.ALIPAY.COM/FKX05202GE16QHOXXX7NE6",
+        aliUrl: "",
         
         // 用于动态生成二维码的API，一般不需要修改。
-        qrcodeApi: "https://www.kuaizhan.com/common/encode-png?large=true&data="    
+        qrcodeApi: "https://tool.kd128.com/qrcode?text="    
         /*
         备用二维码api：
         http://s.jiathis.com/qrcode.php?url=
@@ -37,6 +37,7 @@
         
         本多合一收款码作者 @megnkun(https://mkblog.cn)，转载请注明！
         Github： https://github.com/mengkunsoft/OneQRCode
+        2019年03月03日Lexsion(http://Lexsion.com)根据个人需要进行了部分修改。
         */
     }
     </script>
@@ -68,7 +69,7 @@
         text-align: center;
     }
     .code-area>img {
-        margin: 80px 0;
+        margin: 60px 0;
         width: 60%;
         min-width: 100px;
     }
@@ -79,7 +80,7 @@
         color: #666;
         line-height: 80px;
         font-size: 20px;
-        margin: -2px 2px 2px 2px;
+        margin: -2px 2px 6px 2px;
     }
     
     #code-all>.code-title {
@@ -110,7 +111,13 @@
         <div class="code-area">
             <img id="page-url" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==">
         </div>
-        <div class="code-footer">扫描以上二维码向我付款</div>
+        <div class="code-footer">支付宝或微信扫描二维码付款</div>
+        <footer align="center">
+			本页面由 <a href="http://lexsion.com">Lexsion.com</a> & <a href="http://github.com">github.com</a> 强力驱动。
+		</footer>
+        <footer align="center">
+			感谢 <a href="https://mkblog.cn">@megnkun</a> 提供 <a href="https://github.com/mengkunsoft/OneQRCode">源代码</a>。
+		</footer>
     </div>
     
     <!-- QQ钱包二维码展示区域 -->
@@ -119,7 +126,13 @@
         <div class="code-area">
             <img id="qq-url" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==">
         </div>
-        <div class="code-footer">长按以上二维码向我付款</div>
+        <div class="code-footer">长按二维码选择识别付款</div>
+        <footer align="center">
+			本页面由 <a href="http://lexsion.com">Lexsion.com</a> & <a href="http://github.com">github.com</a> 强力驱动。
+		</footer>
+        <footer align="center">
+			感谢 <a href="https://mkblog.cn">@megnkun</a> 提供 <a href="https://github.com/mengkunsoft/OneQRCode">源代码</a>。
+		</footer>
     </div>
     
     <!-- 微信二维码展示区域 -->
@@ -128,13 +141,19 @@
         <div class="code-area">
             <img id="wechat-url" src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==">
         </div>
-        <div class="code-footer">长按以上二维码向我付款</div>
+        <div class="code-footer">长按二维码选择识别付款</div>
+        <footer align="center">
+			本页面由 <a href="http://lexsion.com">Lexsion.com</a> & <a href="http://github.com">github.com</a> 强力驱动。
+		</footer>
+        <footer align="center">
+			感谢 <a href="https://mkblog.cn">@megnkun</a> 提供 <a href="https://github.com/mengkunsoft/OneQRCode">源代码</a>。
+		</footer>
     </div>
     
     <script>
     if(!(/^http(s*):\/\//.test(location.href)) || /^http(s*):\/\/localhost/.test(location.href)) {
         alert('本收款码需要网站空间进行中转，请先部署到网站下再访问');
-        window.location.href='https://github.com/mengkunsoft/OneQRCode';
+        /*window.location.href='https://github.com/mengkunsoft/OneQRCode';*/
     }
     
     if(navigator.userAgent.match(/Alipay/i)) {
